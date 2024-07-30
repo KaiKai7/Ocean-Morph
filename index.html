@@ -8,8 +8,23 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #a0d8ef; /* Light blue color to match the ocean theme */
+            background-color: #0183BB; /* Light blue color to match the ocean theme */
             overflow: hidden; /* Prevents scrollbars */
+        }
+
+        .title {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5em;
+            color: white;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.0); /* More transparent background */
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 2; /* Ensures the title is on top of the images */
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Black outline */
         }
 
         .morph {
@@ -29,6 +44,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             transition: opacity 3s ease-in-out;
+            z-index: 1; /* Ensures images are behind the title */
         }
 
         .morph img.hidden {
@@ -42,6 +58,10 @@
 </head>
 <body>
     <div class="morph" onclick="morphImages()">
+        <div class="title">
+            Things are not always what they seem; the first appearance deceives many; the intelligence of a few perceives what has been carefully hidden.<br>
+            <em>- Phaedrus</em>
+        </div>
         <img id="image1" src="https://raw.githubusercontent.com/KaiKai7/Outfall/main/oceanclean.jpg" alt="Clean Ocean" class="visible">
         <img id="image2" src="https://raw.githubusercontent.com/KaiKai7/Outfall/main/oceandirty.jpg" alt="Dirty Ocean" class="hidden">
     </div>
